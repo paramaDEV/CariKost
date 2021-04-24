@@ -1,0 +1,455 @@
+*{
+    margin : 0;
+    padding : 0;
+}
+body{
+    overflow-x: hidden;
+}
+nav {
+    top: 0;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 2px 2px 5px rgb(228, 228, 228);
+    display: flex;
+    flex-direction: row;
+    z-index: 8;
+    position: fixed;
+    left: 0;
+    right: 0;
+    justify-content: space-between;
+    height: 70px;
+    line-height: 70px;
+    padding-left: 20px;
+    color : rgb(235, 24, 24);
+    font-family: 'Raleway',sans-serif;
+}
+nav ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    width: 40%;
+    justify-content: space-evenly;
+    position: relative;
+    
+}
+nav ul a{
+    color: rgb(77, 77, 77);
+    text-decoration: none;
+    font-family: 'Roboto',sans-serif;
+}
+nav ul a:visited{
+    color: rgb(77, 77, 77);
+}
+nav ul a:hover{
+    color: red;
+}
+.hide{
+    display: none;
+}
+.secA{
+    margin-top : 50px;
+    height: 610px;
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
+    background-image: url("../img/background.png");
+    overflow: hidden;
+    background-repeat:no-repeat;
+    background-size: 120% 100%;
+  
+}
+.secA .text{
+    height: 100%;
+    margin-left: 20px;
+    opacity: 0;
+    width: 45%;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+}
+.secA .text h1 , p, button{
+    z-index: 5;
+}
+
+.secA .text .imgA{
+   position: absolute;
+   top : -120px;
+   margin-left: -240px;
+}
+
+.secA .image{
+    height: 100%;
+    width: 40%;
+    position: relative;
+}
+.secA .image img{
+    position: absolute; 
+    
+}
+.secA .image .imgB {
+    top : 210px;
+    left : 20px;
+    z-index: 3;
+    height: 400px;
+}
+.secA .image .imgC {
+    top : 60px;
+    left : 10px;
+    z-index: 3;
+    height: 600px;
+}
+.secA .image .imgD {
+    top : 110px;
+    left : 10px;
+    z-index: 3;
+    height: 500px;
+}
+.secA .image .imgA{
+    z-index: 2;
+    position: absolute;
+    top : 120px;
+    left:520px;
+}
+.secA .text button{
+    transition: 0.3s;
+    width: 200px;
+    height: 50px;
+    border-radius: 50px;
+    border:none;
+    color: white;
+    background-color: rgb(233, 28, 28);
+    cursor: pointer;
+    font-size: 20px;
+}
+.secA .text button:hover{
+    opacity: 0.8;
+}
+.secA .text h1{
+    font-family: 'Cabin',sans-serif;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+.secA .text p{
+    font-family: sans-serif;
+    margin-bottom: 30px;
+    font-size: 20px;
+} 
+.secB{
+    padding: 50px;
+    box-sizing: border-box;
+    background-color : rgb(252, 252, 252);
+}
+.secB h1{
+    font-family: 'Cabin',sans-serif;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.secB .wrap{
+    width : 80%;
+    padding: 20px;
+    display: flex;
+    flex-direction : row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap : wrap ;
+}
+.secB .wrap .kotak{
+    height: 200px;
+    width : 220px;
+    margin : 5px;
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.secB .wrap .kotak i{
+    transition: 0.3s;
+    font-size : 100px;
+    margin-bottom: 10px;
+    color : rgb(233, 28, 28);
+}
+.secB .wrap .kotak:hover i{
+    transition: 0.3s;
+    
+    transform :scale(1.23);
+    transform:translateY(-20px);
+}
+.secB .wrap .kotak p{
+    font-size: 20px;
+    font-family: sans-serif;
+}
+.secC{
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+.secC h1{
+    font-family: 'Cabin',sans-serif;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.secC .wrap{
+    width : 80%;
+    padding: 20px;
+    display: flex;
+    flex-direction : row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap : wrap ;
+}
+.secC .wrap .kotak{
+    background-color : rgb(219, 219, 219);
+    height : 200px;
+    transition : 0.3s;
+    width : 200px;
+    margin : 20px;
+    border-radius : 15px;
+    position: relative;
+    line-height: 200px;
+    background-size: 230px;
+    background-position-x: -15px;
+
+}
+.secC .wrap .kotak:hover{
+    transition : 0.3s;
+    opacity : 0.8;
+    background-size: 240px;
+}
+.secC .wrap .kotak p{
+    font-size : 35px;
+    color : white;
+    font-family : sans-serif;
+}
+.secC .wrap .arrow{
+    transition: 0.5s;
+    height: unset;
+    background-color: unset;
+    color:black;
+    margin-left:-50px;
+    cursor: pointer;
+    font-size: 100px;
+}
+.secC .wrap .arrow:hover{
+    transition: 0.5s;
+    opacity: 1;
+    font-size:110px;
+    color : rgb(233, 28, 28);
+}
+.secD{
+    padding: 50px;
+    box-sizing: border-box;
+    background-color : rgb(252, 252, 252);
+}
+.secD h1{
+    font-family: 'Cabin',sans-serif;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.secD p{
+    font-family: 'Raleway',sans-serif;
+    text-align: center;
+    width : 90%;
+    font-size : 20px;
+}
+.secD button{
+    width: 180px;
+    height: 50px;
+    margin-top: 40px;
+    border-radius: 50px;
+    border:none;
+    color: white;
+    background-color: rgb(233, 28, 28);
+    cursor: pointer;
+    font-size: 20px;
+}
+.secD button:hover{
+    opacity : 0.8;
+}
+.secE{
+    padding: 50px;
+    box-sizing: border-box;
+}
+.secE h1{
+    font-family: 'Cabin',sans-serif;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.secE .wrap{
+    width : 92%;
+    display: flex;
+    flex: row;
+    flex-wrap : wrap;
+    justify-content: start;
+}
+.secE .wrap .kotak{
+    width : 320px;
+    padding: 10px;
+    margin : 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+.secE .wrap .kotak .image {
+    height : 100px;
+    width  : 100px;
+    background-color : grey;
+    background-size : 100%;
+    border-radius : 50%;
+}
+.secE .wrap .kotak .text { 
+    width : 200px;
+}
+.secE .wrap .kotak .text h4{
+    font-family: sans-serif;
+    text-align: left;
+    font-size: 20px;
+}
+.secE .wrap .kotak .text p{
+    font-family: sans-serif;
+    text-align: left;
+}
+.secF{
+    padding: 50px;
+    height : 500px;
+    background-color : rgb(252, 252, 252);
+}
+.secF h1{
+    font-family: 'Cabin',sans-serif;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.secF .wrap1{
+    width : 95%;
+    height : 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content : space-evenly;
+    align-items: center;
+}
+.secF .wrap1 i{
+    font-size : 30px;
+    cursor: pointer;
+}
+.secF .wrap1 i:active{
+    color : grey;
+}
+.secF .wrap1 .wrap2{
+    width :83%;
+    margin-top: 50px;
+    overflow-x: hidden;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.secF .wrap1 .wrap2 .kotak{
+    height : 400px;
+    width  : 300px;
+    background-color : white;
+    border-radius : 15px;
+    box-shadow : 2px 2px 5px rgb(207, 207, 207) ; 
+    overflow: hidden;
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.3s;
+}
+.secF .wrap1 .wrap2 .kotak:hover{
+    transition: 0.3s;
+    transform: scale(1.02);
+}
+.secF .wrap1 .wrap2 .kotak .image{
+    height : 220px;
+    width : 300px;
+    background-size: 135%;
+    background-color : rgb(0, 0, 0) ;
+    position: relative;
+}
+.secF .wrap1 .wrap2 .kotak .image h3{
+    color: white;
+    font-family: 'Calibri',sans-serif;
+    font-size: 20px;
+    text-align: left ; 
+    position: absolute;
+    top : 10px;
+    left : 10px;
+}
+.secF .wrap1 .wrap2 .kotak .image i{
+    color : rgb(241, 159, 64);
+}
+.secF .wrap1 .wrap2 .kotak .nama{
+    height : 35px;
+    text-align: left ;
+    padding-left : 10px;
+    line-height: 35px;
+}
+.secF .wrap1 .wrap2 .kotak .nama h3{
+    font-family : 'Cabin',sans-serif;
+    white-space: nowrap;
+    font-weight: lighter;
+    font-size: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.secF .wrap1 .wrap2 .kotak h4{
+    font-family : 'Calibri',sans-serif;
+    font-size : 18px;
+    font-weight: lighter ;
+}
+.secF .wrap1 .wrap2 .kotak .contents{
+    height : 35px;
+    text-align: left ;
+    padding-left : 10px;
+    line-height: 35px;
+}
+.secF .wrap1 .wrap2 .kotak .contents button{
+    height : 25px;
+    width : 80px;
+    background-color: white;
+    border: 2px solid rgb(85, 85, 85);
+    border-radius : 10px;
+    transition: 0.3s;
+}
+
+.secF .wrap1 .wrap2 .kotak .contents h3 i{
+    font-family : 'Calibri',sans-serif;
+    font-size: 20px;
+}
+.secF .wrap1 .wrap2 .kotak .contents p{
+    font-family : 'Calibri',sans-serif;
+    font-size : 18px;
+    color: rgb(119, 119, 119);
+    overflow : hidden ;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 15px;
+}
+.secF .wrap1 .wrap2 .kotak .contents h3{
+    font-family: 'Calibri',sans-serif;
+    color: rgb(14, 107, 14);
+    margin-top: 20px;
+}
+.secF .wrap1 .wrap2 .kotak i{
+    font-size : 18px;
+}
+footer{
+    height: 50px;
+    line-height: 50px;
+    font-family: 'Calibri',sans-serif;
+    font-family: 15px;
+    color : rgb(233, 28, 28);
+    font-weight: bold;
+}
+
+
+
+
+@media screen and (min-width:1500px){
+    .secA{
+        justify-content: space-evenly;
+    }
+    nav ul {
+        width: 30%;
+    }
+}
