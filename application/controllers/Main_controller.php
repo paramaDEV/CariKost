@@ -53,7 +53,6 @@ class main_controller  extends CI_Controller{
             </div>");
             redirect('main_controller/login_page');
         }
-
     }
     public function user_registration_page(){
         $this->load->model('main_model');

@@ -147,7 +147,7 @@
                         </li>
                         <li>
                             <div class="kotak">
-                                <div class="image" style="background-image:url(<?=base_url('assets/img/recom-kost2.png')?>)">
+                                <div class="image" style="background-image:url(<?=base_url('assets/img/recom-kost3.png')?>)">
                                     <h3><i class="fas fa-star"></i> 4.5 </h3>
                                 </div>
                                 <div class="nama">

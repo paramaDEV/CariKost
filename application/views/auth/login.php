@@ -22,10 +22,12 @@
                                             id="email" name="email" aria-describedby="emailHelp"
                                             placeholder="Email Address">
                                     </div>
+                                    <?=form_error('email')?>
                                     <div class="form-group">
                                         <input type="password" class="form-control form-control-user"
                                             id="password" name="password" placeholder="Password">
                                     </div>
+                                    <?=form_error('password')?>
                                     <button type="submit" class="btn btn-danger btn-user btn-block">
                                         Login
                                     </button>
