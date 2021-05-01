@@ -40,6 +40,7 @@ class main_controller  extends CI_Controller{
             }
         }else if($admin!=null){
             if(password_verify($password,$admin['password'])){
+                $this->session->set_userdata('id',$admin["id"]);
                 redirect("admin_controller/index");
             }else{
                 $this->session->set_flashdata('message',"<div class='alert alert-danger alert-dismissible fade show' role='alert'>
@@ -119,6 +120,13 @@ class main_controller  extends CI_Controller{
         Akun Berhasil Dibuat
         </div>");
         redirect('main_controller/login_page');
+    }
+    public function logout(){
+        $this->session->unset_userdata('id');
+        $this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissible fade show' role='alert'>
+                Akun berhasil logout
+                </div>");
+        redirect("main_controller/login_page");
     }
 }
 ?>

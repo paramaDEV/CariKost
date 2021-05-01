@@ -13,8 +13,10 @@
     <script src=<?=base_url()."assets/datatables/dataTables.bootstrap4.min.js"?>></script>
 
     <!-- Page le,vel custom scripts -->
+    <script src=<?=base_url()."assets/chart.js/Chart.min.js"?>></script>
     <script src=<?=base_url()."assets/js/demo/datatables-demo.js"?>></script>
-
+    <script src=<?=base_url()."assets/js/demo/chart-area-demo.js"?>></script>
+    <script src=<?=base_url()."assets/js/demo/chart-pie-demo.js"?>></script>
 </body>
 
 </html>

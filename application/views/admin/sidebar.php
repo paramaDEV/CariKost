@@ -6,7 +6,7 @@
     <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: #d10a0a;" >
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
             <div class="sidebar-brand-icon">
                 <i class="fas fa-door-open"></i>
             </div>
@@ -23,27 +23,27 @@
         <hr class="sidebar-divider">
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-            <a class="nav-link" href="charts.html">
+            <a class="nav-link" href=<?=base_url()."admin_controller/index"?>>
                 <i class="fas fa-fw fa-home" style="font-size: 16px;color:white"></i>
                 <span style="font-size: 16px;">Dashboard</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="charts.html" >
+            <a class="nav-link" href=<?=base_url()."admin_controller/data_kost"?> >
                 <i class="fas fa-fw fa-map-marked-alt" style="font-size: 16px;color:white"></i>
                 <span style="font-size: 16px;">Data Kost</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="charts.html">
+            <a class="nav-link" href="<?=base_url().'admin_controller/data_user'?>">
                 <i class="fas fa-fw fa-users"style="font-size: 16px;color:white" ></i>
                 <span style="font-size: 16px;" >Data User</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="charts.html">
+            <a class="nav-link"  href="<?=base_url().'admin_controller/profile'?>">
                 <i class="fas fa-fw fa-user" style="font-size: 16px;color:white"></i>
                 <span style="font-size: 16px;" >Profil</spanstyle=></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="charts.html" data-toggle="modal" data-target="#logoutModal">
+            <a class="nav-link"  href="<?=base_url().'main_controller/logout'?>" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-fw fa-sign-out-alt" style="font-size: 16px;color:white"></i>
                 <span style="font-size: 16px;" >Logout</span></a>
         </li>
@@ -103,11 +103,33 @@
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                              aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?=$admin["nama"]?></span>
                             <img class="img-profile rounded-circle"
-                                src=<?=base_url()."assets/img/admin/profile.png"?>>
+                            <?php if($admin["foto"]==null){?>
+                                src="<?=base_url().'assets/img/admin/profile.png'?>"
+                                <?php }else{ ?>
+                                    src="<?=base_url().'assets/img/admin/'.$admin['foto']?>"
+                                <?php } ?>>
                         </a>
                     </li>
                 </ul>
             </nav>
             <!-- End of Topbar -->
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Anda yakin ingin logout ?</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">Klik Logout untuk melanjutkan dan cancel untuk batal</div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                            <a class="btn btn-primary" href=<?=base_url()."main_controller/logout"?>>Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
