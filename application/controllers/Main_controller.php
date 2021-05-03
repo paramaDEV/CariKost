@@ -31,6 +31,7 @@ class main_controller  extends CI_Controller{
        
         if($user!=null){
             if(password_verify($password,$user['password'])){
+                $this->session->set_userdata("id",$user["id"]);
                 redirect("user_controller/index");
             }else{
                 $this->session->set_flashdata('message',"<div class='alert alert-danger alert-dismissible fade show' role='alert'>

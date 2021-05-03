@@ -43,7 +43,7 @@
                 <span style="font-size: 16px;" >Profil</spanstyle=></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link"  href="<?=base_url().'main_controller/logout'?>" data-toggle="modal" data-target="#logoutModal">
+            <a class="nav-link"  href="#" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-fw fa-sign-out-alt" style="font-size: 16px;color:white"></i>
                 <span style="font-size: 16px;" >Logout</span></a>
         </li>

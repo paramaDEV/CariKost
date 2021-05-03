@@ -23,7 +23,10 @@
     <link href=<?=base_url()."assets/css/admin.css"?> rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@700&display=swap" rel="stylesheet">
+
     <!-- Custom styles for this page -->
     <link href=<?=base_url()."assets/datatables/dataTables.bootstrap4.min.css"?> rel="stylesheet">
+    <link rel="stylesheet" href=<?=base_url()."assets/leaflet/leaflet.css"?>>
 
 </head>

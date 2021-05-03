@@ -132,7 +132,7 @@
                         <li>
                             <div class="kotak">
                                 <div class="image" style="background-image:url(<?=base_url('assets/img/recom-kost1.png')?>)">
-                                    <h3><i class="fas fa-star"></i> 4.9 </h3>
+                                 
                                 </div>
                                 <div class="nama">
                                     <h3> Lavender Kost</h3>
@@ -148,7 +148,7 @@
                         <li>
                             <div class="kotak">
                                 <div class="image" style="background-image:url(<?=base_url('assets/img/recom-kost3.png')?>)">
-                                    <h3><i class="fas fa-star"></i> 4.5 </h3>
+                             
                                 </div>
                                 <div class="nama">
                                     <h3> Kost Ngastina</h3>
@@ -164,7 +164,7 @@
                         <li>
                             <div class="kotak">
                                 <div class="image" style="background-image:url(<?=base_url('assets/img/recom-kost4.png')?>)">
-                                    <h3><i class="fas fa-star"></i> 4.6 </h3>
+                            
                                 </div>
                                 <div class="nama">
                                     <h3>Kost Putri Bu Annie</h3>
@@ -173,14 +173,14 @@
                                     <button>Putri</button> <button>Bulanan</button>
                                     <h4><i class="fas fa-map-marker-alt"></i> : Malang</h4>
                                     <p>Kamar mandi dalam ber shower, Free listrik & air, Free WIFI</p>
-                                          <h3>Rp 800.000 / bulan</h3>
+                                 
                                 </div>
                             </div>
                         </li>
                         <li>
                             <div class="kotak">
                                 <div class="image" style="background-image:url(<?=base_url('assets/img/recom-kost5.png')?>)">
-                                    <h3><i class="fas fa-star"></i> 4.4</h3>
+                               
                                 </div>
                                 <div class="nama">
                                     <h3> Kost Griya Bukhari</h3>
@@ -196,7 +196,7 @@
                         <li>
                             <div class="kotak">
                                 <div class="image" style="background-image:url(<?=base_url('assets/img/recom-kost2.png')?>)">
-                                    <h3><i class="fas fa-star"></i> 5.0 </h3>
+
                                 </div>
                                 <div class="nama">
                                     <h3> Kost Bougenville</h3>

@@ -19,6 +19,8 @@
                                 <div class="collapse show" id="collapseCardExample1">
                                     <div class="card-body" >
                                         <div id="map" style="height:550px;"></div>
+                                        <br>
+                                        <a href=""><h5> Cek rute Anda &rarr;</h5></a>
                                     </div>
                                 </div>
                             </div>

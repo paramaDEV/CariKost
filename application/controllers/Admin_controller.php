@@ -52,8 +52,8 @@ class Admin_controller extends CI_Controller{
         $this->form_validation->set_rules("telepon","Telepon","required");
         $this->form_validation->set_rules("harga","Harga","required");
         $this->form_validation->set_rules("alamat","Alammat","required");
-        $this->form_validation->set_rules("long","Longitude","required");
-        $this->form_validation->set_rules("lat","Latitude","required");
+        $this->form_validation->set_rules("long","Longitude","required|decimal");
+        $this->form_validation->set_rules("lat","Latitude","required|decimal");
 
         if($this->form_validation->run()==false){
         $this->load->model('main_model');

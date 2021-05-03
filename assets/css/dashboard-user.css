@@ -1,0 +1,87 @@
+.container{
+    width : 95%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.container .item{
+    height :360px;
+    width :  250px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 2px 2px 5px #c9c9c9;
+    overflow: hidden;
+    transition: 0.3s;
+    margin : 10px;
+}
+a:hover{
+    text-decoration: none;
+}
+.container .item:hover{
+    transition: 0.3s;
+    transform: scale(1.02);
+    text-decoration: none;
+    font-style: unset;
+}
+.container .item .image{
+    height : 200px;
+    width : 250px;
+    background-size: 330px;
+}
+.container .item .nama{
+    height : 35px;
+    text-align: left ;
+    padding-left : 10px;
+    margin-top: 10px;
+    margin-bottom: -10px;
+    line-height: 35px;
+}
+.container .item .nama h3{
+    font-family : 'Cabin',sans-serif;
+    white-space: nowrap;
+    color: black;
+    font-size: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.container .item h4{
+    font-family : 'Calibri',sans-serif;
+    font-size : 18px;
+    font-weight: lighter ;
+    color: black;
+}
+.container .item .contents{
+    height : 35px;
+    text-align: left ;
+    padding-left : 10px;
+    line-height: 35px;
+}
+.container .item .contents h3 i{
+    font-family : 'Calibri',sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+}
+.container .item .contents p{
+    font-family : 'Calibri',sans-serif;
+    font-size : 18px;
+    color: rgb(119, 119, 119);
+    overflow : hidden ;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 15px;
+}
+.container .item .contents h3{
+    font-family: 'Calibri',sans-serif;
+    color: green;
+    font-size:15px;
+    margin-top: 20px;
+}
+.container .item button{
+    background-color : white;
+    border-radius: 12px;
+    margin: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    border : 1px  solid rgb(22, 22, 22);
+}
