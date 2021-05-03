@@ -9,6 +9,11 @@
                 </div>
             <div class="card-body"></div>
                     </div> -->
+                    <form class="form-inline">
+                        <label class="sr-only" for="inlineFormInputName2">Name</label>
+                        <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" style="width:400px;" placeholder="Ketik nama atau lokasi kost yang ingin anda cari">
+                        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    </form>
                 <div class="container mx-auto mt-4">
                     <?php foreach($kost as $x):?>
                     <a href="<?=base_url().'user_controller/detail_kost/'.$x['id']?>">

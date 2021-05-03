@@ -23,7 +23,7 @@
         <hr class="sidebar-divider">
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-            <a class="nav-link" href="charts.html">
+            <a class="nav-link" href="<?=base_url().'user_controller/'?>">
                 <i class="fas fa-fw fa-home" style="font-size: 16px;color:white"></i>
                 <span style="font-size: 16px;">Dashboard</span></a>
         </li>
