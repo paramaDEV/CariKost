@@ -28,12 +28,12 @@
                 <span style="font-size: 16px;">Dashboard</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="charts.html">
-                <i class="fas fa-fw fa-heart"style="font-size: 16px;color:white" ></i>
+            <a class="nav-link" href="<?=base_url().'user_controller/favorit'?>">
+                <i class="fas fa-fw fa-star"style="font-size: 16px;color:white" ></i>
                 <span style="font-size: 16px;" >Favorit</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="charts.html">
+            <a class="nav-link" href="<?=base_url().'user_controller/profil'?>">
                 <i class="fas fa-fw fa-user" style="font-size: 16px;color:white"></i>
                 <span style="font-size: 16px;" >Profil</spanstyle=></a>
         </li>

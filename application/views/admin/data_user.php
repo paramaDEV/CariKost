@@ -6,7 +6,6 @@
     For more information about DataTables, please visit the <a target="_blank"
         href="https://datatables.net">official DataTables documentation</a>.</p> -->
 <!-- DataTales Example -->
-<a href="<?=base_url().'admin_controller/tambah_kost'?>"><button type="button" class="btn btn-success mb-3"><i class="fas fa-plus mr-2"></i>Tambah Data</button></a>
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>

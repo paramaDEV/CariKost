@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="<?=base_url().'assets/css/detail-kost.css'?>">
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
@@ -20,7 +20,7 @@
                                     <div class="card-body" >
                                         <div id="map" style="height:550px;"></div>
                                         <br>
-                                        <a href=""><h5> Cek rute Anda &rarr;</h5></a>
+                                        <a class="fullView"><h6> View Fullscreen &rarr;</h6></a>
                                     </div>
                                 </div>
                             </div>
@@ -52,33 +52,97 @@
                                             Jenis <a class="float-right"><?=$kost['jenis']?></a>
                                         </li>
                                         <li class="list-group-item">
-                                            Harga<a class="float-right"><?="IDR ".$kost['nmkost']?></a>
+                                            Pembayaran <a class="float-right"><?=$kost['pembayaran']?></a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            Harga<a class="float-right">Rp <?=number_format($kost['harga'],0,',','.')?></a>
                                         </li>
                                         <li class="list-group-item">
                                             Telepon <a class="float-right"><?=$kost['telepon']?></a>
                                         </li>
                                         <li class="list-group-item">
-                                            Longitude <a class="float-right"><?=$kost['longitude']?></a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            Latitude<a class="float-right"><?=$kost['latitude']?></a>
-                                        </li>
-                                        <li class="list-group-item">
                                            Alamat <a class="float-right"><?=$kost['alamat']?></a>
                                         </li>
-                                        </ul>
+                                        <li class="list-group-item">
+                                        <?php if($favorit==null){?>
+                                        <form method="POST" action="<?=base_url().'user_controller/tambah_favorit'?>">
+                                            <input type="hidden" name="id_user" value="<?=$user["id"]?>">
+                                            <input type="hidden" name="id_kost" value="<?=$kost["id"]?>">
+                                            <button class="btn" type="submit"><h6 class="text-primary"><i class="fas fa-fw fa-star" style="font-size: 16px;color:#dea937" ></i><strong> Tambahkan ke Favorit </strong></h6></button>
+                                            <?php }else{ ?>
+                                        <form method="POST" action="<?=base_url().'user_controller/hapus_favorit'?>">
+                                            <input type="hidden" name="id_user" value="<?=$user["id"]?>">
+                                            <input type="hidden" name="id_kost" value="<?=$kost["id"]?>">
+                                                <button class="btn" type="submit" onclick="return confirm('Apakah Anda yakin ingin menghapus dari favorit ?')"><h6 class="text-danger"><i class="fas fa-fw fa-trash" style="font-size: 16px;" ></i><strong> Hapus dari Favorit </strong></h6></button>
+                                            <?php } ?>
+                                        </form>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                          </div>
                     </div>
-<script src=<?=base_url()."assets/leaflet/leaflet.js"?>></script>
-<script>
-    var map = L.map('map').setView([<?=$kost['latitude']?>, <?=$kost['longitude']?>], 13);
+                    <div class="fullScreen hide">
+                        <center><div id="map2" class="mx-auto mt-4"></div></center>
+                        <i class="fas fa-fw fa-times"></i>
+                        <center><button class="btn btn-info mt-2"  id="tampilRute">Tampilkan Rute Dari Lokasi Saya</button></center>
+                    </div>
 
+<script>
+$(document).ready(()=>{
+    var map = L.map('map').setView([<?=$kost['latitude']?>, <?=$kost['longitude']?>], 16);
+    let currLat,currLong;
+    
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
-
     L.marker([<?=$kost['latitude']?>, <?=$kost['longitude']?>]).addTo(map)
-        .bindPopup("<center><b><?=$kost['nmkost']?></b><br><?=$kost['alamat']?></center>") ;
+        .bindPopup("<center><b><?=$kost['nmkost']?></b><br><?=$kost['alamat']?></center>");
+
+    let getLocation = ()=>{
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(showPosition);
+        }else{
+            alert("Geolocation is not supported by this browser");
+        }
+    }
+
+    let showPosition = (position)=>{
+        currLat = position.coords.latitude;
+        currLong = position.coords.longitude;
+
+    }
+   
+    getLocation();
+    
+    
+
+    $(".fullView").click(()=>{
+        
+        $(".fullScreen").removeClass("hide");
+        var map2 = L.map('map2').setView([<?=$kost['latitude']?>, <?=$kost['longitude']?>], 15);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map2);
+        L.marker([<?=$kost['latitude']?>, <?=$kost['longitude']?>]).addTo(map2)
+        .bindPopup("<center><b><?=$kost['nmkost']?></b><br><?=$kost['alamat']?></center>");
+
+        $("#tampilRute").click(()=>{
+            L.Routing.control({
+                waypoints: [
+                    L.latLng(currLat, currLong),
+                    L.latLng(<?=$kost['latitude']?>, <?=$kost['longitude']?>)
+                ]
+                }).addTo(map2);
+        })
+
+        console.log(currLat,currLong);
+
+    });
+
+    $(".fullScreen i").click(()=>{
+        $(".fullScreen").addClass("hide");
+    });
+});
 </script>

@@ -6,8 +6,14 @@ class Admin_controller extends CI_Controller{
         if($id_admin!=null){
         $data["admin"]=$this->main_model->get_admin_where(["id"=>$id_admin]);
         $data["kost"]=$this->main_model->get_kost();
+        $data["kota_kab"]=$this->main_model->get_kota();
+        $data["user"]=$this->main_model->get_user();
+        $data["jumlah_kost"]=[
+            "KtMalang"=>count($this->db->get_where('data_kost',["id_kota_kab"=>1])->result_array())
+        ];
+        $data2["title"]="Dashboard Admin";
         $this->load->model('main_model');
-        $this->load->view('admin/header');
+        $this->load->view('admin/header',$data2);
         $this->load->view('admin/sidebar',$data);
         $this->load->view('admin/dashboard');
         $this->load->view('admin/footer');
@@ -20,8 +26,9 @@ class Admin_controller extends CI_Controller{
         if($id_admin!=null){
         $data["admin"]=$this->main_model->get_admin_where(["id"=>$id_admin]);
         $data["kost"]=$this->main_model->get_kost();
+        $data2["title"]="Data Kost";
         $this->load->model('main_model');
-        $this->load->view('admin/header');
+        $this->load->view('admin/header',$data2);
         $this->load->view('admin/sidebar',$data);
         $this->load->view('admin/data_kost');
         $this->load->view('admin/footer');
@@ -34,8 +41,9 @@ class Admin_controller extends CI_Controller{
         if($id_admin!=null){
         $data["admin"]=$this->main_model->get_admin_where(["id"=>$id_admin]);
         $data["kost"]=$this->main_model->get_kost_where(["id"=>$id]);
+        $data2["title"]="Detail Kost";
         $this->load->model('main_model');
-        $this->load->view('admin/header');
+        $this->load->view('admin/header',$data2);
         $this->load->view('admin/sidebar',$data);
         $this->load->view('admin/detail_kost');
         $this->load->view('admin/footer');
@@ -47,6 +55,8 @@ class Admin_controller extends CI_Controller{
         $id_admin=$this->session->userdata("id");
         if($id_admin!=null){
         $data["admin"]=$this->main_model->get_admin_where(["id"=>$id_admin]);
+        $data["kota_kab"]=$this->main_model->get_kota();
+        $data2["title"]="Tambah Data Kost";
         $this->form_validation->set_rules("nmkost","Nama Kost","required");
         $this->form_validation->set_rules("pemilik","Pemilik","required");
         $this->form_validation->set_rules("telepon","Telepon","required");
@@ -57,7 +67,7 @@ class Admin_controller extends CI_Controller{
 
         if($this->form_validation->run()==false){
         $this->load->model('main_model');
-        $this->load->view('admin/header');
+        $this->load->view('admin/header',$data2);
         $this->load->view('admin/sidebar',$data);
         $this->load->view('admin/tambah_kost');
         $this->load->view('admin/footer');
@@ -74,6 +84,8 @@ class Admin_controller extends CI_Controller{
         $pemilik=$this->input->post('pemilik');
         $telepon=$this->input->post('telepon');
         $harga=$this->input->post('harga');
+        $kota=$this->input->post('kota');
+        $pembayaran=$this->input->post('pembayaran');
         $jenis=$this->input->post('jenis');
         $alamat=$this->input->post('alamat');
         $long=$this->input->post('long');
@@ -97,6 +109,8 @@ class Admin_controller extends CI_Controller{
             "pemilik"=>$pemilik,
             "telepon"=>$telepon,
             "harga"=>$harga,
+            "pembayaran"=>$pembayaran,
+            "id_kota_kab"=>$kota,
             "jenis"=>$jenis,
             "alamat"=>$alamat,
             "longitude"=>$long,
@@ -112,6 +126,7 @@ class Admin_controller extends CI_Controller{
         $id_admin=$this->session->userdata("id");
         if($id_admin!=null){
         $data["admin"]=$this->main_model->get_admin_where(["id"=>$id_admin]);
+        $data2["title"]="Edit Data Kost";
         $this->form_validation->set_rules("nmkost","Nama Kost","required");
         $this->form_validation->set_rules("pemilik","Pemilik","required");
         $this->form_validation->set_rules("telepon","Telepon","required");
@@ -123,7 +138,7 @@ class Admin_controller extends CI_Controller{
         $data["kost"]=$this->main_model->get_kost_where(["id"=>$id]);
         if($this->form_validation->run()==false){
         $this->load->model('main_model');
-        $this->load->view('admin/header');
+        $this->load->view('admin/header',$data2);
         $this->load->view('admin/sidebar',$data);
         $this->load->view('admin/edit_kost');
         $this->load->view('admin/footer');
@@ -180,8 +195,9 @@ class Admin_controller extends CI_Controller{
         if($id_admin!=null){
         $data["admin"]=$this->main_model->get_admin_where(["id"=>$id_admin]);
         $data["user"]=$this->main_model->get_user();
+        $data2["title"]="Data User";
         $this->load->model('main_model');
-        $this->load->view('admin/header');
+        $this->load->view('admin/header',$data2);
         $this->load->view('admin/sidebar',$data);
         $this->load->view('admin/data_user');
         $this->load->view('admin/footer');
@@ -194,8 +210,9 @@ class Admin_controller extends CI_Controller{
         $id_admin=$this->session->userdata("id");
         if($id_admin!=null){
         $data["admin"]=$this->main_model->get_admin_where(["id"=>$id_admin]);
+        $data2["title"]="Profile";
         $this->load->model('main_model');
-        $this->load->view('admin/header');
+        $this->load->view('admin/header',$data2);
         $this->load->view('admin/sidebar',$data);
         $this->load->view('admin/profil');
         $this->load->view('admin/footer');
@@ -208,12 +225,13 @@ class Admin_controller extends CI_Controller{
         $id_admin=$this->session->userdata("id");
         if($id_admin!=null){
         $data["admin"]=$this->main_model->get_admin_where(["id"=>$id_admin]);
+        $data2["title"]="Edit Profile";
         $this->form_validation->set_rules("nama","Nama","required");
         $this->form_validation->set_rules("ttl","Tanggal Lahir","required");
         $this->form_validation->set_rules("email","Email","required");
         if($this->form_validation->run()==false){
         $this->load->model('main_model');
-        $this->load->view('admin/header');
+        $this->load->view('admin/header',$data2);
         $this->load->view('admin/sidebar',$data);
         $this->load->view('admin/update_profile');
         $this->load->view('admin/footer');

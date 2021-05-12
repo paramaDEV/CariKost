@@ -50,7 +50,7 @@
                                             Jenis <a class="float-right"><?=$kost['jenis']?></a>
                                         </li>
                                         <li class="list-group-item">
-                                            Harga<a class="float-right"><?="IDR ".$kost['nmkost']?></a>
+                                            Harga<a class="float-right"><?="Rp ".number_format($kost['harga'],0,',','.')?></a>
                                         </li>
                                         <li class="list-group-item">
                                             Telepon <a class="float-right"><?=$kost['telepon']?></a>
@@ -68,15 +68,17 @@
                                 </div>
                             </div>
                          </div>
-                    </div>
-<script src=<?=base_url()."assets/leaflet/leaflet.js"?>></script>
-<script>
-    var map = L.map('map').setView([<?=$kost['latitude']?>, <?=$kost['longitude']?>], 13);
+                </div>
+            
+            <script>
+                var map = L.map('map').setView([<?=$kost['latitude']?>, <?=$kost['longitude']?>], 13);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
 
-    L.marker([<?=$kost['latitude']?>, <?=$kost['longitude']?>]).addTo(map)
-        .bindPopup("<center><b><?=$kost['nmkost']?></b><br><?=$kost['alamat']?></center>") ;
-</script>
+                L.marker([<?=$kost['latitude']?>, <?=$kost['longitude']?>]).addTo(map)
+                    .bindPopup("<center><b><?=$kost['nmkost']?></b><br><?=$kost['alamat']?></center>") ;
+
+                   
+            </script>
