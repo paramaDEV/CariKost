@@ -20,26 +20,44 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-6">
                         <label for="telepon">Telepon</label>
                         <input type="text" class="form-control" id="telepon" name="telepon">
                         <?=form_error('telepon','<h6>','</h6>')?>
                         </div>
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-6">
                         <label for="harga">Harga</label>
                         <input type="text" class="form-control" id="harga" name="harga">
                         <?=form_error('harga','<h6>','</h6>')?>
                         </div>
-                        <div class="form-group col-md-4">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
                         <label for="inputState">Jenis</label>
                         <select id="jenis" name="jenis" class="form-control">
-                            <option value="Kost Putri">Kost Putri</option>
-                            <option value="Kost Putra">Kost Putra</option>
+                            <option value="Putri">Kost Putri</option>
+                            <option value="Putra">Kost Putra</option>
+                        </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                        <label for="inputState">Pembayaran</label>
+                        <select id="pembayaran" name="pembayaran" class="form-control">
+                            <option value="Bulanan">Bulanan</option>
+                            <option value="Setengah Tahun">Setengah Tahun</option>
+                            <option value="Tahunan">Tahunan</option>
                         </select>
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-12">
+                        <div class="form-group col-md-6">
+                        <label for="inputState">Kota</label>
+                        <select id="kota" name="kota" class="form-control">
+                        <?php foreach($kota_kab as $x){?>
+                            <option value=<?=$x["id"]?>><?=$x["nm_kota_kab"]?></option>
+                        <?php } ?>
+                        </select>
+                        </div>
+                        <div class="form-group col-md-6">
                         <label for="alamat">Alamat</label>
                         <input type="text" class="form-control" id="alamat" name="alamat">
                         <?=form_error('alamat','<h6>','</h6>')?>
