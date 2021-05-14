@@ -27,8 +27,8 @@
                             <button><?=$x['jenis']?></button><button><?=$x['pembayaran']?></button>
                         <div class="contents">
                             <h4><i class="fas fa-map-marker-alt"></i> : Malang</h4>
-                            <p>Fee Listrik, Dapur umum, Kamar mandi luar</p>
-                            <h3>Rp. <?=$x['harga']?> / bulan</h3>
+                            <p>Free Listrik, Dapur umum, Kamar mandi luar</p>
+                            <h3>Rp. <?=$x['harga']?> / tahun</h3>
                         </div>
                     </div></a>
                     <?php endforeach;?>
