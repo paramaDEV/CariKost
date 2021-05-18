@@ -1,7 +1,7 @@
 <div class="container-fluid">
 
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Profil Admin</h1>
+<h1 class="h3 mb-2 text-gray-800">Profil</h1>
 <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
     For more information about DataTables, please visit the <a target="_blank"
         href="https://datatables.net">official DataTables documentation</a>.</p> -->
@@ -27,22 +27,22 @@
                        </div></center>
                 </div>
 
-                <h3 class="profile-username text-center">none</h3>
+                <h3 class="profile-username text-center"><?=$user["nama"]?></h3>
 
                 <p class="text-muted text-center">User</p>
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
-                    <b>Nama</b> <a class="float-right">none</a>
+                    <b>Nama</b> <a class="float-right"><?=$user["nama"]?></a>
                   </li>
                   <li class="list-group-item">
-                    <b>Jenis Kelamin</b> <a class="float-right">none</a>
+                    <b>Jenis Kelamin</b> <a class="float-right"><?=$user["jenis_kelamin"]?></a>
                   </li>
                   <li class="list-group-item">
-                    <b>Tanggal Lahir</b> <a class="float-right">none</a>
+                    <b>Tanggal Lahir</b> <a class="float-right"><?=$user["ttl"]?></a>
                   </li>
                   <li class="list-group-item">
-                    <b>Email</b> <a class="float-right">none</a>
+                    <b>Email</b> <a class="float-right"><?=$user["email"]?></a>
                   </li>
                 </ul>
 

@@ -11,22 +11,32 @@
                 }
                 return rupiah;
             }
-            let generateContainer = (id,nmkost,jenis,pembayaran,nm_kota_kab,harga)=>{$(".container").append(`
-            <a href="detail_kost/${id}">
-            <div class="item">
-                <div class="image">
-                    <center><i class="fas fa-map-marked-alt mxt-4" style="font-size:120px;color:#f0f0f0;margin-top:30px"></i></center>
-                </div>
-                <div class="nama">
-                <h3>${nmkost}</h3>
-                </div>
-                    <button>${jenis}</button><button>${pembayaran}</button>
-                <div class="contents">
-                    <h4><i class="fas fa-map-marker-alt"></i> : ${nm_kota_kab}</h4>
-                    <p>Free Listrik, Dapur umum, Kamar mandi luar</p>
-                    <h3>Rp ${uang(harga)}</h3>
-                </div>
-            </div></a>`)};
+
+            let generateContainer = (id,nmkost,jenis,pembayaran,nm_kota_kab,harga,foto)=>{
+                let image;
+                if (foto!=''){
+                    image = `<img src='http://localhost/CariKost/assets/img/kost/${foto}' height=200>`;
+                } else {
+                    image = `<i class="fas fa-door-open mx-2 mt-4" style="font-size:140px;color:#f0f0f0"></i>`;
+                }
+                
+                let elemen = `
+                <a href="detail_kost/${id}">
+                <div class="item">
+                    <div class="image">
+                        <center>${image}</center>
+                    </div>
+                    <div class="nama">
+                    <h3>${nmkost}</h3>
+                    </div>
+                        <button>${jenis}</button><button>${pembayaran}</button>
+                    <div class="contents">
+                        <h4><i class="fas fa-map-marker-alt"></i> : ${nm_kota_kab}</h4>
+                        <p>Free Listrik, Dapur umum, Kamar mandi luar</p>
+                        <h3>Rp ${uang(harga)}</h3>
+                    </div>
+                </div></a>`;
+                $(".container").append(elemen)};
             $("input[name='filterKota']").change(()=>{
                 $(".pilihKota").html("Kota / Kabupaten : "+($("input[name='filterKota']:checked").val()));
             });
@@ -53,29 +63,29 @@
                         }else{
                         $.each(result,function(i,e){
                             if(filterKota=="Semua" && filterJenis=="Semua" && filterPembayaran=="Semua"){
-                                generateContainer(e.id,e.nmkost,e.jenis,e.pembayaran,e.nm_kota_kab,e.harga);
+                                generateContainer(e.id,e.nmkost,e.jenis,e.pembayaran,e.nm_kota_kab,e.harga,e.foto);
                                 console.log(x++);
                             }else if(filterKota==e.nm_kota_kab && filterJenis==e.jenis && filterPembayaran==e.pembayaran){
-                                generateContainer(e.id,e.nmkost,e.jenis,e.pembayaran,e.nm_kota_kab,e.harga);
+                                generateContainer(e.id,e.nmkost,e.jenis,e.pembayaran,e.nm_kota_kab,e.harga,e.foto);
                                 console.log(x++);
                             }else if(filterKota=="Semua" && filterJenis==e.jenis && filterPembayaran==e.pembayaran){
-                                generateContainer(e.id,e.nmkost,e.jenis,e.pembayaran,e.nm_kota_kab,e.harga);
+                                generateContainer(e.id,e.nmkost,e.jenis,e.pembayaran,e.nm_kota_kab,e.harga,e.foto);
                                 console.log(x++);
                             }else if(filterKota==e.nm_kota_kab && filterJenis=="Semua" && filterPembayaran==e.pembayaran){
-                                generateContainer(e.id,e.nmkost,e.jenis,e.pembayaran,e.nm_kota_kab,e.harga);
+                                generateContainer(e.id,e.nmkost,e.jenis,e.pembayaran,e.nm_kota_kab,e.harga,e.foto);
                                 console.log(x++);
                             }
                             else if(filterKota==e.nm_kota_kab && filterJenis==e.jenis && filterPembayaran=="Semua"){
-                                generateContainer(e.id,e.nmkost,e.jenis,e.pembayaran,e.nm_kota_kab,e.harga);
+                                generateContainer(e.id,e.nmkost,e.jenis,e.pembayaran,e.nm_kota_kab,e.harga,e.foto);
                                 console.log(x++);
                             }else if(filterKota==e.nm_kota_kab && filterJenis=="Semua" && filterPembayaran=="Semua"){
-                                generateContainer(e.id,e.nmkost,e.jenis,e.pembayaran,e.nm_kota_kab,e.harga);
+                                generateContainer(e.id,e.nmkost,e.jenis,e.pembayaran,e.nm_kota_kab,e.harga,e.foto);
                                 console.log(x++);
                             }else if(filterKota=="Semua" && filterJenis==e.jenis && filterPembayaran=="Semua"){
-                                generateContainer(e.id,e.nmkost,e.jenis,e.pembayaran,e.nm_kota_kab,e.harga);
+                                generateContainer(e.id,e.nmkost,e.jenis,e.pembayaran,e.nm_kota_kab,e.harga,e.foto);
                                 console.log(x++);
                             }else if(filterKota=="Semua" && filterJenis=="Semua" && filterPembayaran==e.pembayaran){
-                                generateContainer(e.id,e.nmkost,e.jenis,e.pembayaran,e.nm_kota_kab,e.harga);
+                                generateContainer(e.id,e.nmkost,e.jenis,e.pembayaran,e.nm_kota_kab,e.harga,e.foto);
                                 console.log(x++);
                             }
                         });
