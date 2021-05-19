@@ -33,12 +33,12 @@
                         <div class="form-group col-md-4">
                         <label for="inputState">Jenis</label>
                         <select id="jenis" name="jenis" class="form-control">
-                        <?php if($kost['jenis']=='Kost Putri'){?>
-                            <option value="Putri" selected>Kost Putri</option>
-                            <option value="Putra">Kost Putra</option>
+                        <?php if($kost['jenis']=='Putri'){?>
+                            <option value="Putri" selected>Putri</option>
+                            <option value="Putra">Putra</option>
                         <?php } else {?>
-                            <option value="Putri" >Kost Putri</option>
-                            <option value="Putra" selected >Kost Putra</option>
+                            <option value="Putri" >Putri</option>
+                            <option value="Putra" selected >Putra</option>
                         <?php } ?>
                         </select>
                         </div>

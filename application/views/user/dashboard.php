@@ -13,6 +13,7 @@
                     </div>
                     
                 <div class="container mx-auto mt-4">
+
                   <div class="image mx-auto" style="margin-top: 100px;">
                         <center><img src="<?=base_url().'assets/img/undraw_House_searching_re_stk8.svg'?>" height="150" alt=""></center>
                         <h3 class="text-center mt-3"><b>Gunakan fitur pencarian untuk<br> menemukan kost yang anda inginkan</b></h3>

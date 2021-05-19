@@ -35,8 +35,8 @@
                         <div class="form-group col-md-6">
                         <label for="inputState">Jenis</label>
                         <select id="jenis" name="jenis" class="form-control">
-                            <option value="Putri">Kost Putri</option>
-                            <option value="Putra">Kost Putra</option>
+                            <option value="Putri">Putri</option>
+                            <option value="Putra">Putra</option>
                         </select>
                         </div>
                         <div class="form-group col-md-6">

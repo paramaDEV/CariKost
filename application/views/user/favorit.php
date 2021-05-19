@@ -6,7 +6,7 @@
                     <a href=<?="detail_kost/".$x["id_kost"]?>>
                     <div   div class="item">
                         <div class="image">
-                            <center><i class="fas fa-map-marked-alt mxt-4" style="font-size:120px;color:#f0f0f0;margin-top:30px"></i></center>
+                            <center><img src=<?= base_url().'assets/img/kost/'.$x['foto']?> height=200></center>
                         </div>
                         <div class="nama">
                         <h3><?=$x['nmkost']?></h3>
