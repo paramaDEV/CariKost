@@ -20,29 +20,29 @@
                 <center><div class="foto" style="border-radius:50%;width:250px;height:250px;overflow:hidden">
                 <img style="width:250px"
                       <?php if($user["foto"]==null){?>
-                       src="<?=base_url().'assets/img/admin/profile.png'?>"
+                       src="<?=base_url().'assets/img/user/profile.png'?>"
                        <?php }else{ ?>
-                        src="<?=base_url().'assets/img/admin/'.$user['foto']?>"
+                        src="<?=base_url().'assets/img/user/'.$user['foto']?>"
                        <?php } ?>>
                        </div></center>
                 </div>
 
-                <h3 class="profile-username text-center">none</h3>
+                <h3 class="profile-username text-center"><?=$user['nama']?></h3>
 
                 <p class="text-muted text-center">User</p>
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
-                    <b>Nama</b> <a class="float-right">none</a>
+                    <b>Nama</b> <a class="float-right"><?=$user['nama']?></a>
                   </li>
                   <li class="list-group-item">
-                    <b>Jenis Kelamin</b> <a class="float-right">none</a>
+                    <b>Jenis Kelamin</b> <a class="float-right"><?=$user['jenis_kelamin']?></a>
                   </li>
                   <li class="list-group-item">
-                    <b>Tanggal Lahir</b> <a class="float-right">none</a>
+                    <b>Tanggal Lahir</b> <a class="float-right"><?=$user['ttl']?></a>
                   </li>
                   <li class="list-group-item">
-                    <b>Email</b> <a class="float-right">none</a>
+                    <b>Email</b> <a class="float-right"><?=$user['email']?></a>
                   </li>
                 </ul>
 

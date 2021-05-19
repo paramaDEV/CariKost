@@ -91,5 +91,58 @@ class User_controller extends CI_Controller{
             redirect("main_controller/login_page");
         }
     }
+
+    public function update_profile(){
+        $iduser=$this->session->userdata("id");
+        if($iduser!=null){
+        $data["user"]=$this->main_model->get_user_where(["id"=>$iduser]);
+        $data2["title"]="Edit Profile";
+        $this->form_validation->set_rules("nama","Nama","required");
+        $this->form_validation->set_rules("ttl","Tanggal Lahir","required");
+        $this->form_validation->set_rules("email","Email","required");
+        if($this->form_validation->run()==false){
+        $this->load->model('main_model');
+        $this->load->view('user/header',$data2);
+        $this->load->view('user/sidebar',$data);
+        $this->load->view('user/update_profile');
+        $this->load->view('user/footer');
+        }else{
+            $this->send_edit_profile($iduser);
+        }
+        }else if($iduser==null){
+            redirect("main_controller/login_page");
+        }
+    }
+
+    public function send_edit_profile($id){
+        $nama = $this->input->post('nama');
+        $kelamin =  $this->input->post('kelamin');
+        $ttl= $this->input->post('ttl');
+        $email = $this->input->post('email');
+        $foto = $_FILES['foto'];
+        $nm_foto = $this->input->post('nmfoto');
+    
+        if($foto!=""){
+            $config["upload_path"]="./assets/img/user/";
+            $config["encrypt_name"]=true;
+            $config["allowed_types"]="jpg|png|jpeg";
+            $config["max_size"]=500;
+            $this->load->library('upload',$config);
+            if($this->upload->do_upload('foto')){
+                $nm_foto=$this->upload->data('file_name');
+            }
+        }
+
+        $data=[
+            "nama"=>$nama,
+            "ttl" =>$ttl,
+            "jenis_kelamin"=>$kelamin,
+            "email"=>$email,
+            "foto"=>$nm_foto
+        ];
+
+        $this->main_model->send_edit_profile_user($data,$id);
+        redirect("user_controller/profile");
+    }
 }
 ?>

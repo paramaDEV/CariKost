@@ -49,6 +49,10 @@ class Main_model extends CI_Model{
         $this->db->where(["id"=>$id]);
         $this->db->update('admin',$data);
     }
+    public function send_edit_profile_user($data,$id){
+        $this->db->where(["id"=>$id]);
+        $this->db->update('user',$data);
+    }
     public function tambah_favorit($data){
         $this->db->insert('favorit',$data);
     }
