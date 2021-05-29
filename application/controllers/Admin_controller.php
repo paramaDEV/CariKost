@@ -1,10 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Admin_controller extends CI_Controller{
+    public $id_admin;
+    public function __construct(){
+        parent :: __construct();
+        $this->id_admin=$this->session->userdata("idadmin");
+    }
     public function index(){
-        $id_admin=$this->session->userdata("id");
-        if($id_admin!=null){
-        $data["admin"]=$this->main_model->get_admin_where(["id"=>$id_admin]);
+        if($this->id_admin!=null){
+        $data["admin"]=$this->main_model->get_admin_where(["id"=>$this->id_admin]);
         $data["kost"]=$this->main_model->get_kost();
         $data["kota_kab"]=$this->main_model->get_kota();
         $data["user"]=$this->main_model->get_user();
@@ -17,14 +21,13 @@ class Admin_controller extends CI_Controller{
         $this->load->view('admin/sidebar',$data);
         $this->load->view('admin/dashboard');
         $this->load->view('admin/footer');
-        }else if($id_admin==null){
+        }else if($this->id_admin==null){
             redirect("main_controller/login_page");
         }
     }
     public function data_kost(){
-        $id_admin=$this->session->userdata("id");
-        if($id_admin!=null){
-        $data["admin"]=$this->main_model->get_admin_where(["id"=>$id_admin]);
+        if($this->id_admin!=null){
+        $data["admin"]=$this->main_model->get_admin_where(["id"=>$this->id_admin]);
         $data["kost"]=$this->main_model->get_kost();
         $data2["title"]="Data Kost";
         $this->load->model('main_model');
@@ -32,14 +35,13 @@ class Admin_controller extends CI_Controller{
         $this->load->view('admin/sidebar',$data);
         $this->load->view('admin/data_kost');
         $this->load->view('admin/footer');
-        }else if($id_admin==null){
+        }else if($this->id_admin==null){
             redirect("main_controller/login_page");
         }
     }
     public function detail_kost($id){
-        $id_admin=$this->session->userdata("id");
-        if($id_admin!=null){
-        $data["admin"]=$this->main_model->get_admin_where(["id"=>$id_admin]);
+        if($this->id_admin!=null){
+        $data["admin"]=$this->main_model->get_admin_where(["id"=>$this->id_admin]);
         $data["kost"]=$this->main_model->get_kost_where(["id"=>$id]);
         $data2["title"]="Detail Kost";
         $this->load->model('main_model');
@@ -47,14 +49,13 @@ class Admin_controller extends CI_Controller{
         $this->load->view('admin/sidebar',$data);
         $this->load->view('admin/detail_kost');
         $this->load->view('admin/footer');
-        }else if($id_admin==null){
+        }else if($this->id_admin==null){
             redirect("main_controller/login_page");
         }
     }
     public function tambah_kost(){
-        $id_admin=$this->session->userdata("id");
-        if($id_admin!=null){
-        $data["admin"]=$this->main_model->get_admin_where(["id"=>$id_admin]);
+        if($this->id_admin!=null){
+        $data["admin"]=$this->main_model->get_admin_where(["id"=>$this->id_admin]);
         $data["kota_kab"]=$this->main_model->get_kota();
         $data2["title"]="Tambah Data Kost";
         $this->form_validation->set_rules("nmkost","Nama Kost","required");
@@ -74,7 +75,7 @@ class Admin_controller extends CI_Controller{
         }else{
             $this->send_tambah_kost();
         }
-        }else if($id_admin==null){
+        }else if($this->id_admin==null){
             redirect("main_controller/login_page");
         }
     }
@@ -123,9 +124,8 @@ class Admin_controller extends CI_Controller{
     }
 
     public function edit_kost($id){
-        $id_admin=$this->session->userdata("id");
-        if($id_admin!=null){
-        $data["admin"]=$this->main_model->get_admin_where(["id"=>$id_admin]);
+        if($this->id_admin!=null){
+        $data["admin"]=$this->main_model->get_admin_where(["id"=>$this->id_admin]);
         $data2["title"]="Edit Data Kost";
         $this->form_validation->set_rules("nmkost","Nama Kost","required");
         $this->form_validation->set_rules("pemilik","Pemilik","required");
@@ -145,7 +145,7 @@ class Admin_controller extends CI_Controller{
         }else{
             $this->send_edit_kost($id);
         }
-        }else if($id_admin==null){
+        }else if($this->id_admin==null){
             redirect("main_controller/login_page");
         }
     }
@@ -191,9 +191,8 @@ class Admin_controller extends CI_Controller{
     }
 
     public function data_user(){
-        $id_admin=$this->session->userdata("id");
-        if($id_admin!=null){
-        $data["admin"]=$this->main_model->get_admin_where(["id"=>$id_admin]);
+        if($this->id_admin!=null){
+        $data["admin"]=$this->main_model->get_admin_where(["id"=>$this->id_admin]);
         $data["user"]=$this->main_model->get_user();
         $data2["title"]="Data User";
         $this->load->model('main_model');
@@ -201,30 +200,28 @@ class Admin_controller extends CI_Controller{
         $this->load->view('admin/sidebar',$data);
         $this->load->view('admin/data_user');
         $this->load->view('admin/footer');
-        }else if($id_admin==null){
+        }else if($this->id_admin==null){
             redirect("main_controller/login_page");
         }
     }
 
     public function profile(){
-        $id_admin=$this->session->userdata("id");
-        if($id_admin!=null){
-        $data["admin"]=$this->main_model->get_admin_where(["id"=>$id_admin]);
+        if($this->id_admin!=null){
+        $data["admin"]=$this->main_model->get_admin_where(["id"=>$this->id_admin]);
         $data2["title"]="Profile";
         $this->load->model('main_model');
         $this->load->view('admin/header',$data2);
         $this->load->view('admin/sidebar',$data);
         $this->load->view('admin/profil');
         $this->load->view('admin/footer');
-        }else if($id_admin==null){
+        }else if($this->id_admin==null){
             redirect("main_controller/login_page");
         }
     }
 
     public function update_profile(){
-        $id_admin=$this->session->userdata("id");
-        if($id_admin!=null){
-        $data["admin"]=$this->main_model->get_admin_where(["id"=>$id_admin]);
+        if($this->id_admin!=null){
+        $data["admin"]=$this->main_model->get_admin_where(["id"=>$this->id_admin]);
         $data2["title"]="Edit Profile";
         $this->form_validation->set_rules("nama","Nama","required");
         $this->form_validation->set_rules("ttl","Tanggal Lahir","required");
@@ -236,9 +233,9 @@ class Admin_controller extends CI_Controller{
         $this->load->view('admin/update_profile');
         $this->load->view('admin/footer');
         }else{
-            $this->send_edit_profile($id_admin);
+            $this->send_edit_profile($this->id_admin);
         }
-        }else if($id_admin==null){
+        }else if($this->id_admin==null){
             redirect("main_controller/login_page");
         }
     }

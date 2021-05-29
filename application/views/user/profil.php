@@ -26,18 +26,12 @@
                        <?php } ?>>
                        </div></center>
                 </div>
-
-<<<<<<< HEAD
-                <h3 class="profile-username text-center"><?=$user['nama']?></h3>
-=======
                 <h3 class="profile-username text-center"><?=$user["nama"]?></h3>
->>>>>>> b7ca9ae11581e64cab9b884615c0de5736420a90
 
                 <p class="text-muted text-center">User</p>
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
-<<<<<<< HEAD
                     <b>Nama</b> <a class="float-right"><?=$user['nama']?></a>
                   </li>
                   <li class="list-group-item">
@@ -48,18 +42,6 @@
                   </li>
                   <li class="list-group-item">
                     <b>Email</b> <a class="float-right"><?=$user['email']?></a>
-=======
-                    <b>Nama</b> <a class="float-right"><?=$user["nama"]?></a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Jenis Kelamin</b> <a class="float-right"><?=$user["jenis_kelamin"]?></a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Tanggal Lahir</b> <a class="float-right"><?=$user["ttl"]?></a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Email</b> <a class="float-right"><?=$user["email"]?></a>
->>>>>>> b7ca9ae11581e64cab9b884615c0de5736420a90
                   </li>
                 </ul>
 

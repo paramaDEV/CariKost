@@ -101,9 +101,9 @@
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?=$user["nama"]?></span>
                             <img class="img-profile rounded-circle"
                             <?php if($user["foto"]==null){?>
-                                src="<?=base_url().'assets/img/admin/profile.png'?>"
+                                src="<?=base_url().'assets/img/user/profile.png'?>"
                                 <?php }else{ ?>
-                                    src="<?=base_url().'assets/img/admin/'.$user['foto']?>"
+                                    src="<?=base_url().'assets/img/user/'.$user['foto']?>"
                                 <?php } ?>>
                         </a>
                     </li>

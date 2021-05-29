@@ -1,16 +1,29 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class User_controller extends CI_Controller{
-
+    public $iduser;
+    public function __construct(){
+        parent :: __construct();
+        $this->iduser=$this->session->userdata("iduser");
+    }
     public function data_kost($key=null){
+        $parameter = explode('%20',$key);
+		$key ='';
+		foreach($parameter as $x){
+			$arr[]=$x;
+			$arr[]=' ';
+		}
+		array_pop($arr);
+		foreach ($arr as $x) {
+			$key.=$x;
+		}
         $data = $this->main_model->get_kost($key);
         echo json_encode($data);
     }
     public function index(){
-        $iduser=$this->session->userdata("id");
-        if($iduser!=null){
+        if($this->iduser!=null){
         $this->load->model('main_model');
-        $data["user"]=$this->main_model->get_user_where(["id"=>$iduser]);
+        $data["user"]=$this->main_model->get_user_where(["id"=>$this->iduser]);
         $data2["title"]="Dashboard User";
         $this->load->view('user/header',$data2);
         $this->load->view('user/sidebar',$data);
@@ -21,12 +34,11 @@ class User_controller extends CI_Controller{
         }
     }
     public function detail_kost($id){
-        $iduser=$this->session->userdata("id");
-        if($iduser!=null){
-        $data["user"]=$this->main_model->get_user_where(["id"=>$iduser]);
+        if($this->iduser!=null){
+        $data["user"]=$this->main_model->get_user_where(["id"=>$this->iduser]);
         $data["kost"]=$this->main_model->get_kost_where(["id"=>$id]);
         $where=[
-            "id_user"=>$iduser,
+            "id_user"=>$this->iduser,
             "id_kost"=>$id
         ];
         $data["favorit"]=$this->main_model->cek_favorite($where);
@@ -36,17 +48,16 @@ class User_controller extends CI_Controller{
         $this->load->view('user/sidebar',$data);
         $this->load->view('user/detail_kost');
         $this->load->view('user/footer');
-        }else if($iduser==null){
+        }else if($this->iduser==null){
             redirect("main_controller/login_page");
         }
     }
     public function favorit(){
-        $iduser=$this->session->userdata("id");
-        if($iduser!=null){
+        if($this->iduser!=null){
         $this->load->model('main_model');
-        $data["user"]=$this->main_model->get_user_where(["id"=>$iduser]);
+        $data["user"]=$this->main_model->get_user_where(["id"=>$this->iduser]);
         $data2["title"]="Favorit";
-        $data["favorit"]=$this->main_model->get_favorit_where($iduser);
+        $data["favorit"]=$this->main_model->get_favorit_where($this->iduser);
         $this->load->view('user/header',$data2);
         $this->load->view('user/sidebar',$data);
         $this->load->view('user/favorit');
@@ -78,10 +89,9 @@ class User_controller extends CI_Controller{
         redirect("user_controller/favorit");
     }
     public function profil(){
-        $iduser=$this->session->userdata("id");
-        if($iduser!=null){
+        if($this->iduser!=null){
         $this->load->model('main_model');
-        $data["user"]=$this->main_model->get_user_where(["id"=>$iduser]);
+        $data["user"]=$this->main_model->get_user_where(["id"=>$this->iduser]);
         $data2["title"]="Profil User";
         $this->load->view('user/header',$data2);
         $this->load->view('user/sidebar',$data);
@@ -93,9 +103,8 @@ class User_controller extends CI_Controller{
     }
 
     public function update_profile(){
-        $iduser=$this->session->userdata("id");
-        if($iduser!=null){
-        $data["user"]=$this->main_model->get_user_where(["id"=>$iduser]);
+        if($this->iduser!=null){
+        $data["user"]=$this->main_model->get_user_where(["id"=>$this->iduser]);
         $data2["title"]="Edit Profile";
         $this->form_validation->set_rules("nama","Nama","required");
         $this->form_validation->set_rules("ttl","Tanggal Lahir","required");
@@ -107,9 +116,9 @@ class User_controller extends CI_Controller{
         $this->load->view('user/update_profile');
         $this->load->view('user/footer');
         }else{
-            $this->send_edit_profile($iduser);
+            $this->send_edit_profile($this->iduser);
         }
-        }else if($iduser==null){
+        }else if($this->iduser==null){
             redirect("main_controller/login_page");
         }
     }
@@ -142,7 +151,7 @@ class User_controller extends CI_Controller{
         ];
 
         $this->main_model->send_edit_profile_user($data,$id);
-        redirect("user_controller/profile");
+        redirect("user_controller/profil");
     }
 }
 ?>

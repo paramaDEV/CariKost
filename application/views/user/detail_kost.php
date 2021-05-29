@@ -38,20 +38,13 @@
                                 <div class="collapse show" id="collapseCardExample2">
                                     <ul class="list-group list-group-unbordered ">
                                         <div class="text-center" style="padding:10px">
-<<<<<<< HEAD
-                                        <?php if($kost['foto']!=''){?>
-                                        <img class="profile-user-img img-fluid img-circle mx-4" src=<?=base_url()."assets/img/kost/".$kost['foto']?> style="height:200px">
-                                        <?php }else{?>
-                                        <i class="fas fa-map-marked-alt mx-2" style="font-size:160px;color:#f0f0f0"></i>
-                                        <?php } ?>
-=======
                                         <?php if ($kost["foto"]!=null ){?>                                         
                                         <img class="profile-user-img img-fluid img-circle mx-4"
                                             src=<?=base_url()."assets/img/kost/".$kost['foto']?> style="height:200px">
                                             <?php } else {?>
                                             <i class="fas fa-door-open mx-2" style="font-size:160px;color:#f0f0f0"></i>
                                         <?php }?>
->>>>>>> b7ca9ae11581e64cab9b884615c0de5736420a90
+
                                         </div>
                                         <li class="list-group-item">
                                             Nama Kost <a class="float-right"><?=$kost['nmkost']?></a>
